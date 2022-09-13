@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Weather App</title>
 </head>
+
 <body>
+    <header class="container-fluid py-3 text-center fw-bold custom-header w-100">
+        <h1 class="text-light">Weather Dashboard</h1>
+    </header>
+    <main class="container-fluid d-flex" name="main-container">
+        <div class="col-4" name="left-conatiner">
+            <div class="row pb-3 border-bottom" name="top-left">
+                <form>
+                    <h2 class="h2 fw-bold mt-2">Search for a City:</h2>
+                    <div class="my-3">
+                        <input type="text" class="form-control" id="citySearch" aria-describedby="citySearch"
+                            placeholder="New Orleans">
+                    </div>
+                    <button type="submit" id="submitBtn" class="btn btn-primary w-100">Search</button>
+                </form>
+            </div>
+            <div class="row" name="bottom-left">
+                <ul>
 
+                </ul>
+            </div>
 
+        </div>
+        <div class="container col-8" name="top-right">
+            <div class="row">
+                <div class="card w-100 h-100 m-2 p-2 d-flex justify-contents-left">
+                    <div class="card-body" id="currentWeatherContainer">
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex" name="bottom-right">
 
+            </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
     <script src="./Assets/js/script.js"></script>
 </body>
+
 </html>
