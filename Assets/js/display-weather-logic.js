@@ -5,12 +5,15 @@ var savedCitiesContainer = $('#savedCities');
 var forecastContainer = $('#forecastContainer');
 var apiKey = 'a27c4ec3fde99d757c527f6588abe9c8'
 
+// Click event on the submit button
 submitBtn.on("click", function (e) {
     e.preventDefault();
+    // Storing the input here so it can be passed to the ensuing functions
     var searchInput = citySearch.val();
     getWeatherInfo(searchInput);
 });
 
+// This function makes two calls to the API, one for current weather, one for future weather
 var getWeatherInfo = function (searchInput) {
     var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${searchInput}&APIKEY=${apiKey}`;
     var forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=${searchInput}&appid=${apiKey}`;
@@ -22,6 +25,7 @@ var getWeatherInfo = function (searchInput) {
                     .then(function (data) {
                         console.log(data);
                         displayCurrentWeather(data);
+                        // Seach input is passed to the setLocalStorage function to be stored immediately
                         setLocalStorage(searchInput);
                     })
             }
@@ -38,6 +42,7 @@ var getWeatherInfo = function (searchInput) {
         })
 };
 
+// Takes the current weather data and builds the current weather display card
 var displayCurrentWeather = function (data) {
     currentWeatherContainerEl.html("");
 
@@ -49,6 +54,8 @@ var displayCurrentWeather = function (data) {
     var cityNameEl = $('<h2>');
     var currentDate = moment().format("M/DD/YYYY");
     cityNameEl.text(`${cityName} (${currentDate})`);
+
+    // The icon value is stored and put into the url below to locate the image
     var iconImgEl = $('<img>')
     var iconCode = data.weather[0].icon;
     var iconurl = `http://openweathermap.org/img/w/${iconCode}.png`;
@@ -73,9 +80,11 @@ var displayCurrentWeather = function (data) {
     currentWeatherContainerEl.append(currentHumidityEl);
 }
 
+// This function takes the future weather data and builds out the future weather cards
 var displayFutureWeather = function (data) {
     forecastContainer.html("");
 
+    // This API endpoint display 8 forcasts for a day so the loop only applies for each 8th array item
     for (i = 0; i < data.list.length; i++) {
         if (i === 4 || i === 12 || i === 20 || i === 28 || i === 36) {
             var forecastCardEl = $('<div>');
@@ -84,6 +93,7 @@ var displayFutureWeather = function (data) {
             var forecastDateEl = $('<div>');
             forecastDateEl.text(moment(data.list[i].dt_txt).format("M/DD/YYYY"));
 
+            // The icon value is stored and put into the url below to locate the image
             var futureIconDiv = $('<div>');
             var futureIconImgEl = $('<img>');
             var futureIconCode = data.list[i].weather[0].icon;
@@ -122,6 +132,7 @@ var displayFutureWeather = function (data) {
     }
 }
 
+// Stored the search input into local storage as an object
 var setLocalStorage = function (searchInput) {
     var city = {
         city: searchInput,
@@ -134,6 +145,7 @@ var setLocalStorage = function (searchInput) {
     renderLocalStorage();
 }
 
+// Displays cities stored in local storage to the page
 var renderLocalStorage = function () {
     savedCitiesContainer.html("");
     var savedWeather = JSON.parse(localStorage.getItem("savedCities")) || [];
@@ -149,7 +161,9 @@ var renderLocalStorage = function () {
 
 renderLocalStorage();
 
+// CLick event that handles clicking on a displayed recent search item
 savedCitiesContainer.on("click", function (e) {
     city = e.target.getAttribute("data-city");
+    // Passes city attribute value as the searchInput
     getWeatherInfo(city);
 });
