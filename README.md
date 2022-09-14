@@ -12,7 +12,7 @@ In this project I learned the importance of saving objects to local storage, so 
 
 The app can be viewed by following this link: https://nolacoder.github.io/06-Module-Challenge/
 
-- *Reminder the the instructors told us to use the city search API Url instead of the latitude/longitude Url and to omit the UV requirement because the free versions of the API no longer support those two features.*
+- *Reminder the the instructors told us to use the city search API Url instead of the latitude/longitude Url and to omit the UV requirement because the free versions of the API no longer supports those two features.*
 
 This app utilizes the Open Weather API to deliver weather information. The API request is modified to include the search input chosen by the user. Two calls are made to the API when the Search button is pressed. One for the current weather and another for the future weather. 
 
