@@ -23,7 +23,6 @@ var getWeatherInfo = function (searchInput) {
             if (response.ok) {
                 response.json()
                     .then(function (data) {
-                        console.log(data);
                         displayCurrentWeather(data);
                         // Seach input is passed to the setLocalStorage function to be stored immediately
                         setLocalStorage(searchInput);
@@ -35,7 +34,6 @@ var getWeatherInfo = function (searchInput) {
             if (response.ok) {
                 response.json()
                     .then(function (data) {
-                        console.log(data);
                         displayFutureWeather(data);
                     })
             }
