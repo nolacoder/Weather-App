@@ -1,2 +1,0 @@
-var cityInput = $('#citySearch');
-
