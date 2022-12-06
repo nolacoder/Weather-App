@@ -2,8 +2,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
 I was tasked with creating a weather app. This app needed to allow the user to enter a city and see the current weather details for that location. Additionally the user is able to see the weather for 5 days in the future for that location. So that the user can quickly review a previously viewed weather location, their recently searched cities remain displayed on the page. The user can see the weather for the recent cities by clicking their element. 
 
 In this project I learned the importance of saving objects to local storage, so that users can save multiple items of the same type of data into the local storage. Learning to parse and maniuplte data recieved through an API is a very importance skill as well, as APIs can deliver interesting infomation that make apps more useful.
