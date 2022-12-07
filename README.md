@@ -8,7 +8,7 @@ In this project I learned the importance of saving objects to local storage, so 
 
 ## Usage
 
-The app can be viewed by following this link: https://nolacoder.github.io/06-Module-Challenge/
+The app can be viewed by following this link: https://nolacoder.github.io/Weather-App/
 
 - *Reminder the the instructors told us to use the city search API Url instead of the latitude/longitude Url and to omit the UV requirement because the free versions of the API no longer supports those two features.*
 
